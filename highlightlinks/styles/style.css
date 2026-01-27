@@ -1,0 +1,43 @@
+body {
+    font-family: "Karla", sans-serif;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 32pt;
+    margin-left: 24pt;
+}
+
+#mainContent {
+    width: 100%;
+    display: flex;
+}
+
+#left {
+    margin-left: 12pt;
+    margin-top: 24pt;
+}
+
+#right {
+    margin-left: 12pt;
+}
+
+#activeSelection {
+    font-weight: 900;
+}
+
+#right p {
+    font-size: 32pt;
+}
+
+
+
+#renderedContent {
+    font-style: italic;
+}
+
+@media only screen and (max-width: 767px) {
+    #mainContent {
+        flex-direction: column;
+    }
+}
