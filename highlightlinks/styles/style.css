@@ -16,6 +16,9 @@ h1 {
 #left {
     margin-left: 12pt;
     margin-top: 24pt;
+    font-size: 16t;
+    font-weight: 600;
+    font-style: italic;
 }
 
 #right {
