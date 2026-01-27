@@ -1,6 +1,84 @@
-h1 {
+body {
+  background: #DAEDF5;
+  background: linear-gradient(180deg,rgba(218, 237, 245, 1) 0%, rgba(118, 176, 65, 1) 50%, rgba(54, 159, 124, 1) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/*Title*/
+h1 a{
   font-family: "Carter One", system-ui;
   font-weight: 400;
-  font-style: normal;
+  color: #FE5F55;
+  font-size: 32pt;
+  margin: 0;
+  text-decoration: none;
+  transition: 0.15s;
+
+}
+
+
+.secret {
+  opacity: 30%;
+}
+
+h1 a:hover .secret {
+  opacity: 1;
+  transition: 0.15s;
+}
+
+/*unordered list*/
+/*links to the page in a*/
+/*description as a paragraph*/
+
+ul {
+  font-family: "Karla", sans-serif;
+  list-style-type: none;
+  font-size: 32pt;
+  margin: 0;
+  padding: 0;
+  margin-left: 12pt;
+}
+
+li {
+  margin-bottom: 12pt;
+}
+
+
+li a {
+  color: #8377D1;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+li a:hover {
+  text-decoration: underline;
+}
+
+li p{
+  color: #FFC20A;
+  margin: 0;
+  font-style: italic;
+  font-weight: 100;
+}
+
+li a:hover + p {
+  color: #FE5F55;
+}
+
+/*smartphones*/
+@media only screen and (max-width: 767px) {
+  .secret {
+    display: none;
+  }
+
+  h1 a{
+    font-size: 22pt;
+  }
+  ul {
+    font-size: 22pt;
+    margin-left: 0;
+
+  }
 }
 
