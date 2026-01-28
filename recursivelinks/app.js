@@ -7,6 +7,9 @@ let selectionFlag = false;
 let selectionContent = "";
 let linksCurrentPage = [];
 
+let listOfDeleteLinkButtons = [];
+
+
 
 
 //When page is loaded.
@@ -62,9 +65,29 @@ function renderLinks (array) {
     listOfLinks.innerHTML = "";
     for (const link of array) {
         const li = document.createElement("li");
-        li.innerHTML = `<a href="https://www.google.com/search?q=${link}" target="blank">${link}</a>`;
+        const a = document.createElement("a");
+        const btn = document.createElement("button");
+        a.innerHTML = `<a href="https://www.google.com/search?q=${link}" target="blank">${link}</a>`;
+        btn.innerText = `X`;
+        btn.value = link;
+        btn.classList.add("deleteLinkBtn");
+        li.appendChild(btn);
+        li.appendChild(a);
         listOfLinks.appendChild(li);
     }
+    listOfDeleteLinkButtons = document.getElementsByClassName("deleteLinkBtn");
+    //Add event listeners to all the links.
+    for (var i = 0; i < listOfDeleteLinkButtons.length; i++) {
+        listOfDeleteLinkButtons[i].addEventListener('click', deleteLink);
+    }
+}
+
+
+function deleteLink (event) {
+    event.preventDefault();
+    linksCurrentPage = linksCurrentPage.filter(link => link !== event.target.value);
+    readableText.innerHTML = linkify(textEditor.value);
+    renderLinks(linksCurrentPage);
 }
 
 

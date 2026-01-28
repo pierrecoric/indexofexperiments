@@ -47,6 +47,25 @@ textarea {
     background-color: blueviolet;
 }
 
+#listOfLinks {
+    font-size: 12pt;
+    list-style-type: none;
+}
+
+
+.deleteLinkBtn {
+    margin-right: 6pt;
+    border-radius: 50%;
+    height: 24pt;
+    width: 24pt;
+    background-color: white;
+    border-color: blue;
+}
+
+.deleteLinkBtn:hover {
+    cursor: pointer;
+}
+
 
 
 
