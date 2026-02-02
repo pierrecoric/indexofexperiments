@@ -1,0 +1,337 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+#recuResult {
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	font-family: sans-serif;
+	font-size: 18pt;
+	line-height: 24pt;
+	word-break: break-all;
+	print-color-adjust: exact;
+}
+
+
+#story {
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 10vh;
+	height: 30vh;
+}
+
+#buttons {
+	margin-top: 5vh;
+	display: flex;
+	justify-content: center;
+}
+
+#buttons button {
+	margin-right: 5vh;
+}
+
+.r10000{color:rgb(255,0,0);}
+
+.r0{color:rgb(0,0,0);}
+.r1{color:rgb(1,1,1);}
+.r2{color:rgb(2,2,2);}
+.r3{color:rgb(3,3,3);}
+.r4{color:rgb(4,4,4);}
+.r5{color:rgb(5,5,5);}
+.r6{color:rgb(6,6,6);}
+.r7{color:rgb(7,7,7);}
+.r8{color:rgb(8,8,8);}
+.r9{color:rgb(9,9,9);}
+.r10{color:rgb(10,10,10);}
+.r11{color:rgb(11,11,11);}
+.r12{color:rgb(12,12,12);}
+.r13{color:rgb(13,13,13);}
+.r14{color:rgb(14,14,14);}
+.r15{color:rgb(15,15,15);}
+.r16{color:rgb(16,16,16);}
+.r17{color:rgb(17,17,17);}
+.r18{color:rgb(18,18,18);}
+.r19{color:rgb(19,19,19);}
+.r20{color:rgb(20,20,20);}
+.r21{color:rgb(21,21,21);}
+.r22{color:rgb(22,22,22);}
+.r23{color:rgb(23,23,23);}
+.r24{color:rgb(24,24,24);}
+.r25{color:rgb(25,25,25);}
+.r26{color:rgb(26,26,26);}
+.r27{color:rgb(27,27,27);}
+.r28{color:rgb(28,28,28);}
+.r29{color:rgb(29,29,29);}
+.r30{color:rgb(30,30,30);}
+.r31{color:rgb(31,31,31);}
+.r32{color:rgb(32,32,32);}
+.r33{color:rgb(33,33,33);}
+.r34{color:rgb(34,34,34);}
+.r35{color:rgb(35,35,35);}
+.r36{color:rgb(36,36,36);}
+.r37{color:rgb(37,37,37);}
+.r38{color:rgb(38,38,38);}
+.r39{color:rgb(39,39,39);}
+.r40{color:rgb(40,40,40);}
+.r41{color:rgb(41,41,41);}
+.r42{color:rgb(42,42,42);}
+.r43{color:rgb(43,43,43);}
+.r44{color:rgb(44,44,44);}
+.r45{color:rgb(45,45,45);}
+.r46{color:rgb(46,46,46);}
+.r47{color:rgb(47,47,47);}
+.r48{color:rgb(48,48,48);}
+.r49{color:rgb(49,49,49);}
+.r50{color:rgb(50,50,50);}
+.r51{color:rgb(51,51,51);}
+.r52{color:rgb(52,52,52);}
+.r53{color:rgb(53,53,53);}
+.r54{color:rgb(54,54,54);}
+.r55{color:rgb(55,55,55);}
+.r56{color:rgb(56,56,56);}
+.r57{color:rgb(57,57,57);}
+.r58{color:rgb(58,58,58);}
+.r59{color:rgb(59,59,59);}
+.r60{color:rgb(60,60,60);}
+.r61{color:rgb(61,61,61);}
+.r62{color:rgb(62,62,62);}
+.r63{color:rgb(63,63,63);}
+.r64{color:rgb(64,64,64);}
+.r65{color:rgb(65,65,65);}
+.r66{color:rgb(66,66,66);}
+.r67{color:rgb(67,67,67);}
+.r68{color:rgb(68,68,68);}
+.r69{color:rgb(69,69,69);}
+.r70{color:rgb(70,70,70);}
+.r71{color:rgb(71,71,71);}
+.r72{color:rgb(72,72,72);}
+.r73{color:rgb(73,73,73);}
+.r74{color:rgb(74,74,74);}
+.r75{color:rgb(75,75,75);}
+.r76{color:rgb(76,76,76);}
+.r77{color:rgb(77,77,77);}
+.r78{color:rgb(78,78,78);}
+.r79{color:rgb(79,79,79);}
+.r80{color:rgb(80,80,80);}
+.r81{color:rgb(81,81,81);}
+.r82{color:rgb(82,82,82);}
+.r83{color:rgb(83,83,83);}
+.r84{color:rgb(84,84,84);}
+.r85{color:rgb(85,85,85);}
+.r86{color:rgb(86,86,86);}
+.r87{color:rgb(87,87,87);}
+.r88{color:rgb(88,88,88);}
+.r89{color:rgb(89,89,89);}
+.r90{color:rgb(90,90,90);}
+.r91{color:rgb(91,91,91);}
+.r92{color:rgb(92,92,92);}
+.r93{color:rgb(93,93,93);}
+.r94{color:rgb(94,94,94);}
+.r95{color:rgb(95,95,95);}
+.r96{color:rgb(96,96,96);}
+.r97{color:rgb(97,97,97);}
+.r98{color:rgb(98,98,98);}
+.r99{color:rgb(99,99,99);}
+.r100{color:rgb(100,100,100);}
+.r101{color:rgb(101,101,101);}
+.r102{color:rgb(102,102,102);}
+.r103{color:rgb(103,103,103);}
+.r104{color:rgb(104,104,104);}
+.r105{color:rgb(105,105,105);}
+.r106{color:rgb(106,106,106);}
+.r107{color:rgb(107,107,107);}
+.r108{color:rgb(108,108,108);}
+.r109{color:rgb(109,109,109);}
+.r110{color:rgb(110,110,110);}
+.r111{color:rgb(111,111,111);}
+.r112{color:rgb(112,112,112);}
+.r113{color:rgb(113,113,113);}
+.r114{color:rgb(114,114,114);}
+.r115{color:rgb(115,115,115);}
+.r116{color:rgb(116,116,116);}
+.r117{color:rgb(117,117,117);}
+.r118{color:rgb(118,118,118);}
+.r119{color:rgb(119,119,119);}
+.r120{color:rgb(120,120,120);}
+.r121{color:rgb(121,121,121);}
+.r122{color:rgb(122,122,122);}
+.r123{color:rgb(123,123,123);}
+.r124{color:rgb(124,124,124);}
+.r125{color:rgb(125,125,125);}
+.r126{color:rgb(126,126,126);}
+.r127{color:rgb(127,127,127);}
+.r128{color:rgb(128,128,128);}
+.r129{color:rgb(129,129,129);}
+.r130{color:rgb(130,130,130);}
+.r131{color:rgb(131,131,131);}
+.r132{color:rgb(132,132,132);}
+.r133{color:rgb(133,133,133);}
+.r134{color:rgb(134,134,134);}
+.r135{color:rgb(135,135,135);}
+.r136{color:rgb(136,136,136);}
+.r137{color:rgb(137,137,137);}
+.r138{color:rgb(138,138,138);}
+.r139{color:rgb(139,139,139);}
+.r140{color:rgb(140,140,140);}
+.r141{color:rgb(141,141,141);}
+.r142{color:rgb(142,142,142);}
+.r143{color:rgb(143,143,143);}
+.r144{color:rgb(144,144,144);}
+.r145{color:rgb(145,145,145);}
+.r146{color:rgb(146,146,146);}
+.r147{color:rgb(147,147,147);}
+.r148{color:rgb(148,148,148);}
+.r149{color:rgb(149,149,149);}
+.r150{color:rgb(150,150,150);}
+.r151{color:rgb(151,151,151);}
+.r152{color:rgb(152,152,152);}
+.r153{color:rgb(153,153,153);}
+.r154{color:rgb(154,154,154);}
+.r155{color:rgb(155,155,155);}
+.r156{color:rgb(156,156,156);}
+.r157{color:rgb(157,157,157);}
+.r158{color:rgb(158,158,158);}
+.r159{color:rgb(159,159,159);}
+.r160{color:rgb(160,160,160);}
+.r161{color:rgb(161,161,161);}
+.r162{color:rgb(162,162,162);}
+.r163{color:rgb(163,163,163);}
+.r164{color:rgb(164,164,164);}
+.r165{color:rgb(165,165,165);}
+.r166{color:rgb(166,166,166);}
+.r167{color:rgb(167,167,167);}
+.r168{color:rgb(168,168,168);}
+.r169{color:rgb(169,169,169);}
+.r170{color:rgb(170,170,170);}
+.r171{color:rgb(171,171,171);}
+.r172{color:rgb(172,172,172);}
+.r173{color:rgb(173,173,173);}
+.r174{color:rgb(174,174,174);}
+.r175{color:rgb(175,175,175);}
+.r176{color:rgb(176,176,176);}
+.r177{color:rgb(177,177,177);}
+.r178{color:rgb(178,178,178);}
+.r179{color:rgb(179,179,179);}
+.r180{color:rgb(180,180,180);}
+.r181{color:rgb(181,181,181);}
+.r182{color:rgb(182,182,182);}
+.r183{color:rgb(183,183,183);}
+.r184{color:rgb(184,184,184);}
+.r185{color:rgb(185,185,185);}
+.r186{color:rgb(186,186,186);}
+.r187{color:rgb(187,187,187);}
+.r188{color:rgb(188,188,188);}
+.r189{color:rgb(189,189,189);}
+.r190{color:rgb(190,190,190);}
+.r191{color:rgb(191,191,191);}
+.r192{color:rgb(192,192,192);}
+.r193{color:rgb(193,193,193);}
+.r194{color:rgb(194,194,194);}
+.r195{color:rgb(195,195,195);}
+.r196{color:rgb(196,196,196);}
+.r197{color:rgb(197,197,197);}
+.r198{color:rgb(198,198,198);}
+.r199{color:rgb(199,199,199);}
+.r200{color:rgb(200,200,200);}
+.r201{color:rgb(201,201,201);}
+.r202{color:rgb(202,202,202);}
+.r203{color:rgb(203,203,203);}
+.r204{color:rgb(204,204,204);}
+.r205{color:rgb(205,205,205);}
+.r206{color:rgb(206,206,206);}
+.r207{color:rgb(207,207,207);}
+.r208{color:rgb(208,208,208);}
+.r209{color:rgb(209,209,209);}
+.r210{color:rgb(210,210,210);}
+.r211{color:rgb(211,211,211);}
+.r212{color:rgb(212,212,212);}
+.r213{color:rgb(213,213,213);}
+.r214{color:rgb(214,214,214);}
+.r215{color:rgb(215,215,215);}
+.r216{color:rgb(216,216,216);}
+.r217{color:rgb(217,217,217);}
+.r218{color:rgb(218,218,218);}
+.r219{color:rgb(219,219,219);}
+.r220{color:rgb(220,220,220);}
+.r221{color:rgb(221,221,221);}
+.r222{color:rgb(222,222,222);}
+.r223{color:rgb(223,223,223);}
+.r224{color:rgb(224,224,224);}
+.r225{color:rgb(225,225,225);}
+.r226{color:rgb(226,226,226);}
+.r227{color:rgb(227,227,227);}
+.r228{color:rgb(228,228,228);}
+.r229{color:rgb(229,229,229);}
+.r230{color:rgb(230,230,230);}
+.r231{color:rgb(231,231,231);}
+.r232{color:rgb(232,232,232);}
+.r233{color:rgb(233,233,233);}
+.r234{color:rgb(234,234,234);}
+.r235{color:rgb(235,235,235);}
+.r236{color:rgb(236,236,236);}
+.r237{color:rgb(237,237,237);}
+.r238{color:rgb(238,238,238);}
+.r239{color:rgb(239,239,239);}
+.r240{color:rgb(240,240,240);}
+.r241{color:rgb(241,241,241);}
+.r242{color:rgb(242,242,242);}
+.r243{color:rgb(243,243,243);}
+.r244{color:rgb(244,244,244);}
+.r245{color:rgb(245,245,245);}
+.r246{color:rgb(246,246,246);}
+.r247{color:rgb(247,247,247);}
+.r248{color:rgb(248,248,248);}
+.r249{color:rgb(249,249,249);}
+.r250{color:rgb(250,250,250);}
+.r251{color:rgb(251,251,251);}
+.r252{color:rgb(252,252,252);}
+.r253{color:rgb(253,253,253);}
+.r254{color:rgb(254,254,254);}
+.r255{color:rgb(255,255,255);}  
