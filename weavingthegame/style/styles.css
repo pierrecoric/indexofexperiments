@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+--bg:#161B3C;
+--surface:#161B3C;
+--border:#9EB3C2;
+--text:#9EB3C2;
+--muted:#9EB3C2;
+--accent:#9EB3C2;
+--input-bg:#534bf5;
+--font-ui:'IBM Plex Sans',sans-serif;
+--font-mono:'IBM Plex Mono',monospace;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+font-family:var(--font-ui);
+font-size:13px;
+}
+
+#weavingForm{
+width:100%;
+background:var(--surface);
+border-bottom:1px solid var(--border);
+padding:12px 20px;
+display:grid;
+gap:12px;
+
+/* NEW STRUCTURE */
+grid-template-columns: repeat(12, 1fr);
+grid-template-areas:
+"a a b b . . . . . . . ."
+"c c c d d d e e e . . ."
+"f f f f g g g g . . . ."
+"s s s s s s s s s s s s";
+align-items:start;
+}
+
+.field{display:flex;flex-direction:column;gap:5px}
+
+label{
+font-family:var(--font-mono);
+font-size:10px;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:var(--muted);
+}
+
+input[type="number"],input[type="text"],textarea{
+width:100%;
+background:var(--input-bg);
+border:1px solid var(--border);
+color:var(--text);
+font-family:var(--font-mono);
+font-size:12px;
+padding:6px 8px;
+border-radius:3px;
+}
+
+input[type="range"]{width:100%;accent-color:var(--accent)}
+textarea{min-height:58px;resize:vertical}
+
+.value{
+font-family:var(--font-mono);
+font-size:11px;
+color:var(--accent);
+}
+
+/* GRID AREAS */
+#f1{grid-area:a}
+#f2{grid-area:b}
+#f3{grid-area:c}
+#f4{grid-area:d}
+#f5{grid-area:e}
+#f6{grid-area:f}
+#f7{grid-area:g}
+#sym{grid-area:s;display:flex;align-items:center;gap:10px}
+
+/* color group */
+.color-group{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.color-field{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:5px;
+}
+
+input[type=color]{width:36px;height:28px;border:1px solid var(--border);cursor:pointer}
+
+@media(max-width:600px){
+#weavingForm{
+grid-template-columns:1fr;
+grid-template-areas:
+"a"
+"b"
+"c"
+"d"
+"e"
+"f"
+"g"
+"s";
+}
+.color-group{flex-direction:column;align-items:flex-start}
+}
