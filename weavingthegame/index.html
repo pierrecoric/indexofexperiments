@@ -4,68 +4,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weaving!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Autour+One&family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style/styles.css">
-    <title>Weaving Schematics</title>
 </head>
 
 <body>
 
-    <form id="weavingForm">
+    <div id="weaving-interface">
 
-<!-- row 1 -->
-<div class="field" id="f1">
-<label>Frame width</label>
-<input type="number" id="widthFrame" value="82" min="1">
-</div>
+        <!-- 1. Description -->
+        <div class="col" id="col-description">
+            <h1>Weaving!</h1>
+            <p>
+                Welcome! This is a weaving pattern tool.
+                <br>You can set your weave dimensions, shaft patterns, and color sequences.
+                <br>Weaves are shareable using links.
+                <br>Have fun!
+            </p>
+        </div>
 
-<div class="field" id="f2">
-<label>Weaving height</label>
-<input type="number" id="heightWeaving" value="123" min="1">
-</div>
+        <!-- 2. Warp length + Weft width -->
+        <div class="col" id="col-sizes">
+            <div class="field">
+                <label>warp length ↕</label>
+                <input type="number" id="warp-length" value="123" min="1">
+            </div>
+            <div class="field">
+                <label>weft width ↔</label>
+                <input type="number" id="weft-width" value="82" min="1">
+            </div>
+        </div>
 
-<!-- row 2 sliders -->
-<div class="field" id="f3">
-<label>Cell size (<span id="cellSizeVal" class="value">8</span>)</label>
-<input type="range" id="cellSize" min="4" max="50" value="8">
-</div>
+        <!-- 3. Shafts -->
+        <div class="col" id="col-frames">
+            <label>shafts</label>
+            <div class="frames-list" id="frames-list">
+                <div class="frame-row">
+                    <input type="text" value="ox">
+                    <button class="button small">-</button>
+                </div>
+                <div class="frame-row">
+                    <input type="text" value="xo">
+                    <button class="button small">-</button>
+                </div>
+            </div>
+            <div class="add-btn-row" style="margin-top: 8px;">
+                <button class="button small" id="add-frame">+</button>
+            </div>
+        </div>
 
-<div class="field" id="f4">
-<label>Tail (<span id="tailVal" class="value">1</span>)</label>
-<input type="range" id="tail" min="1" max="10" value="1">
-</div>
+        <!-- 4. Warp color sequence -->
+        <div class="col" id="col-warp-seq">
+            <div class="seq-col-inner">
+                <label>warp color sequence ↕</label>
+                <textarea id="warp-color-sequence">aaaabbbbccccdddd</textarea>
+                <div class="mirror-row">
+                    <label for="warp-mirror">mirror</label>
+                    <input type="checkbox" id="warp-mirror">
+                </div>
+            </div>
+        </div>
 
-<div class="field" id="f5">
-<label>Thread thickness (<span id="threadThicknessVal" class="value">3</span>)</label>
-<input type="range" id="threadThickness" min="1" max="20" value="3">
-</div>
+        <!-- 5. Weft color sequence -->
+        <div class="col" id="col-weft-seq">
+            <div class="seq-col-inner">
+                <label>weft color sequence ↔</label>
+                <textarea id="weft-color-sequence">eeeeddddaaaacccc</textarea>
+                <div class="mirror-row">
+                    <label for="weft-mirror">mirror</label>
+                    <input type="checkbox" id="weft-mirror">
+                </div>
+            </div>
+        </div>
 
-<!-- row 3 -->
-<div class="field" id="f6">
-<label>Frame patterns</label>
-<textarea id="framesInput">ooxx, oxxo, xxoo, xoox</textarea>
-</div>
+        <!-- 6. Colors -->
+        <div class="col" id="col-colors">
+            <label>colors</label>
+            <div class="colors-grid" id="colors-grid">
+                <div class="color-swatch">
+                    <input type="color" id="colorA" value="#e63946">
+                    <label for="colorA">a</label>
+                </div>
+                <div class="color-swatch">
+                    <input type="color" id="colorB" value="#e9c46a">
+                    <label for="colorB">b</label>
+                </div>
+                <div class="color-swatch">
+                    <input type="color" id="colorC" value="#a8d8ea">
+                    <label for="colorC">c</label>
+                </div>
+                <div class="color-swatch">
+                    <input type="color" id="colorD" value="#1a3a8f">
+                    <label for="colorD">d</label>
+                </div>
+                <div class="color-swatch">
+                    <input type="color" id="colorE" value="#2e8b57">
+                    <label for="colorE">e</label>
+                </div>
+            </div>
+            <div class="add-btn-row">
+                <button class="button small" id="add-color">+</button>
+            </div>
+        </div>
 
-<div class="field" id="f7">
-<label>Color sequence</label>
-<input type="text" id="colorSequence" value="aaabbbdddaaadddbbcececececececccccecececeeee">
-</div>
+        <!-- 7. Controls -->
+        <!-- shown when interface is visible -->
+        <div class="col" id="col-controls">
+            <button class="button" id="btn-hide">hide</button>
+            <button class="button" id="btn-save-png">save image</button>
+            <button class="button" id="btn-export">export svg</button>
+            <button class="button" id="btn-share">copy link</button>
+        </div>
+        <!-- shown only when interface is hidden -->
+        <div id="col-show" style="display:none; padding: 12px;">
+            <button class="button" id="btn-show">show</button>
+        </div>
 
-<!-- row 4 symmetric -->
-<div id="sym">
-<label>Symmetric</label>
-<input type="checkbox" id="symmetric">
-</div>
+    </div>
 
-<!-- colors unchanged but grouped visually -->
-<div class="color-group" style="grid-column:1/-1">
-<div class="color-field"><label>A</label><input type="color" id="colorA" value="#e63946"></div>
-<div class="color-field"><label>B</label><input type="color" id="colorB" value="#2a9d8f"></div>
-<div class="color-field"><label>C</label><input type="color" id="colorC" value="#e9c46a"></div>
-<div class="color-field"><label>D</label><input type="color" id="colorD" value="#457b9d"></div>
-<div class="color-field"><label>E</label><input type="color" id="colorE" value="#6d2b7e"></div>
-</div>
-
-</form>
+    <!-- Canvas injected by p5 -->
+    <div id="canvas-area"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.1/lib/p5.min.js"></script>
     <script src="app.js"></script>

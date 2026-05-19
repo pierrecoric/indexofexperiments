@@ -1,112 +1,397 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap');
-
-*{box-sizing:border-box;margin:0;padding:0}
-
-:root{
---bg:#161B3C;
---surface:#161B3C;
---border:#9EB3C2;
---text:#9EB3C2;
---muted:#9EB3C2;
---accent:#9EB3C2;
---input-bg:#534bf5;
---font-ui:'IBM Plex Sans',sans-serif;
---font-mono:'IBM Plex Mono',monospace;
+:root {
+    --clear: #F1FCFF;
+    --pink: #FFC5D9;
+    --highlight: #00BFFF;
+    --font-text: 'Lato', sans-serif;
+    --font-input: 'Google Sans Code', monospace;
+    --font-title: 'Autour One', sans-serif;
 }
 
-body{
-background:var(--bg);
-color:var(--text);
-font-family:var(--font-ui);
-font-size:13px;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-#weavingForm{
-width:100%;
-background:var(--surface);
-border-bottom:1px solid var(--border);
-padding:12px 20px;
-display:grid;
-gap:12px;
-
-/* NEW STRUCTURE */
-grid-template-columns: repeat(12, 1fr);
-grid-template-areas:
-"a a b b . . . . . . . ."
-"c c c d d d e e e . . ."
-"f f f f g g g g . . . ."
-"s s s s s s s s s s s s";
-align-items:start;
+body {
+    background: var(--clear);
+    font-family: var(--font-text);
+    min-height: 100vh;
 }
 
-.field{display:flex;flex-direction:column;gap:5px}
-
-label{
-font-family:var(--font-mono);
-font-size:10px;
-letter-spacing:.08em;
-text-transform:uppercase;
-color:var(--muted);
+/* ── Main toolbar strip ── */
+#weaving-interface {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+    min-height: 180px;
+    background: var(--pink);
+    color: var(--clear);
 }
 
-input[type="number"],input[type="text"],textarea{
-width:100%;
-background:var(--input-bg);
-border:1px solid var(--border);
-color:var(--text);
-font-family:var(--font-mono);
-font-size:12px;
-padding:6px 8px;
-border-radius:3px;
+#weaving-interface.collapsed {
+    min-height: 0;
+    background: var(--clear);
+    justify-content: flex-end;
 }
 
-input[type="range"]{width:100%;accent-color:var(--accent)}
-textarea{min-height:58px;resize:vertical}
-
-.value{
-font-family:var(--font-mono);
-font-size:11px;
-color:var(--accent);
+/* ── Column dividers ── */
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 16px 18px;
+    border-right: 2px solid rgba(241, 252, 255, 0.35);
+    flex-shrink: 0;
 }
 
-/* GRID AREAS */
-#f1{grid-area:a}
-#f2{grid-area:b}
-#f3{grid-area:c}
-#f4{grid-area:d}
-#f5{grid-area:e}
-#f6{grid-area:f}
-#f7{grid-area:g}
-#sym{grid-area:s;display:flex;align-items:center;gap:10px}
-
-/* color group */
-.color-group{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
+.col:last-child {
+    border-right: none;
 }
 
-.color-field{
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:5px;
+/* ── Column sizing ── */
+#col-description {
+    flex: 0 0 220px;
+    justify-content: center;
 }
 
-input[type=color]{width:36px;height:28px;border:1px solid var(--border);cursor:pointer}
-
-@media(max-width:600px){
-#weavingForm{
-grid-template-columns:1fr;
-grid-template-areas:
-"a"
-"b"
-"c"
-"d"
-"e"
-"f"
-"g"
-"s";
+#col-sizes {
+    flex: 0 0 160px;
+    gap: 14px;
 }
-.color-group{flex-direction:column;align-items:flex-start}
+
+#col-frames {
+    flex: 0 0 200px;
+    gap: 8px;
+}
+
+#col-warp-seq {
+    flex: 1 1 0;
+    min-width: 180px;
+    gap: 10px;
+}
+
+#col-weft-seq {
+    flex: 1 1 0;
+    min-width: 180px;
+    gap: 10px;
+}
+
+#col-colors {
+    flex: 0 0 180px;
+    gap: 10px;
+}
+
+#col-controls {
+    flex: 0 0 130px;
+    gap: 8px;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+/* ── Typography ── */
+h1 {
+    font-family: var(--font-title);
+    font-size: 2.4rem;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    color: var(--clear);
+}
+
+p {
+    font-family: var(--font-text);
+    font-size: 0.72rem;
+    line-height: 1.55;
+    color: var(--clear);
+    opacity: 0.9;
+}
+
+label {
+    font-family: var(--font-text);
+    font-size: 0.7rem;
+    color: var(--clear);
+    display: block;
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+}
+
+/* ── Inputs ── */
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    background: var(--clear);
+    border: 1.5px solid var(--highlight);
+    color: var(--pink);
+    font-family: var(--font-input);
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus {
+    border-color: var(--clear);
+}
+
+textarea {
+    width: 100%;
+    flex: 1 1 auto;
+    background: var(--clear);
+    border: 1.5px solid var(--highlight);
+    color: var(--pink);
+    font-family: var(--font-input);
+    font-size: 0.85rem;
+    padding: 10px 12px;
+    resize: none;
+    outline: none;
+    min-height: 90px;
+    transition: border-color 0.15s;
+    line-height: 1.5;
+    word-break: break-all;
+}
+
+textarea:focus {
+    border-color: var(--clear);
+}
+
+/* ── Buttons ── */
+.button {
+    background-color: var(--highlight);
+    border: 2px solid var(--clear);
+    color: var(--clear);
+    font-family: var(--font-input);
+    font-size: 0.82rem;
+    padding: 5px 14px;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.button:hover {
+    background-color: var(--clear);
+    color: var(--highlight);
+}
+
+.button.small {
+    padding: 2px 9px;
+    font-size: 0.78rem;
+}
+
+/* ── Sizes column ── */
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Frames column ── */
+#col-frames .frames-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.frame-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.frame-row input[type="text"] {
+    flex: 1 1 auto;
+}
+
+.frame-row .button.small {
+    flex-shrink: 0;
+}
+
+#col-frames .add-btn-row {
+    margin-top: 4px;
+}
+
+/* ── Sequence columns ── */
+.seq-col-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 8px;
+}
+
+.mirror-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2px;
+}
+
+.mirror-row label {
+    margin-bottom: 0;
+    font-size: 0.7rem;
+}
+
+input[type="checkbox"] {
+    accent-color: var(--highlight);
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+
+/* ── Colors column ── */
+.colors-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: flex-start;
+}
+
+.color-swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.color-swatch label {
+    font-size: 0.65rem;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+input[type="color"] {
+    width: 40px;
+    height: 32px;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.add-btn-row {
+    display: flex;
+    align-items: center;
+}
+
+/* ── Controls column ── */
+#col-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 8px;
+    padding: 16px 14px;
+}
+
+#col-controls .button {
+    text-align: center;
+}
+
+/* Canvas area below the toolbar */
+#canvas-area {
+    width: 100%;
+    /* p5 canvas will be injected here */
+}
+
+/* ── Mobile layout (portrait) ─────────────────────────────────────── */
+@media (max-width: 600px) {
+
+    /* Stack the interface vertically */
+    #weaving-interface {
+        flex-direction: column;
+        min-height: 0;
+        gap: 0;
+    }
+
+    /* Each column becomes a full-width horizontal section */
+    .col {
+        flex: none !important;
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid rgba(241, 252, 255, 0.35);
+        padding: 14px 16px;
+    }
+
+    .col:last-child {
+        border-bottom: none;
+    }
+
+    /* 1. Top bar: title left, no description paragraph */
+    #col-description {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 12px 16px;
+    }
+
+    #col-description p {
+        display: none;
+    }
+
+    #col-description h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0;
+    }
+
+    /* 2. Sizes: two inputs side by side */
+    #col-sizes {
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    #col-sizes .field {
+        flex: 1 1 0;
+    }
+
+    /* 3. Frames: full width, natural scroll */
+    #col-frames {
+        gap: 8px;
+    }
+
+    /* 4 & 5. Sequences: textarea a bit shorter on mobile */
+    .seq-col-inner {
+        height: auto;
+    }
+
+    textarea {
+        min-height: 60px;
+        flex: none;
+    }
+
+    /* 6. Colors: swatches slightly larger for touch */
+    input[type="color"] {
+        width: 48px;
+        height: 40px;
+    }
+
+    /* 7. Action buttons: centered pill row */
+    #col-controls {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 16px;
+    }
+
+    #col-controls .button {
+        flex: none;
+    }
+
+    /* Hide the desktop-only show/hide button on mobile */
+    #btn-hide,
+    #col-show {
+        display: none !important;
+    }
+
+    /* Canvas fills remaining space naturally below the stacked UI */
+    #canvas-area canvas {
+        width: 100% !important;
+        height: auto !important;
+    }
 }
