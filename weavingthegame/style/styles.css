@@ -27,7 +27,6 @@ body {
     flex-direction: row;
     align-items: stretch;
     width: 100%;
-    height: 220px;
     background: var(--pink);
     color: var(--clear);
 }
@@ -298,9 +297,15 @@ input[type="color"] {
     /* p5 canvas will be injected here */
 }
 
-#col-frames,
-#col-colors {
-    overflow-y: auto;
+@media (min-width: 601px) {
+    #weaving-interface {
+        height: 220px;
+    }
+
+    #col-frames,
+    #col-colors {
+        overflow-y: auto;
+    }
 }
 
 /* ── Mobile layout (portrait) ─────────────────────────────────────── */
